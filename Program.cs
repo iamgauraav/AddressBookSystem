@@ -27,10 +27,24 @@ namespace AddressBook
             this.phoneNumber = phoneNumber;
             this.email = email;
         }
+        public void display()
+        {
+            Console.WriteLine(firstName);
+            Console.WriteLine(lastName);
+            Console.WriteLine(address);
+            Console.WriteLine(city);
+            Console.WriteLine(state);
+            Console.WriteLine(zip);
+            Console.WriteLine(phoneNumber);
+            Console.WriteLine(email);
+        }
 
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to your address book");
+
+            Program pro = new Program("\nGaurav", "\nRawat", "civil line", "Indore", "M.P", "452001", 999, "iamgaurav@gmail.com");
+            pro.display();
             Console.ReadLine();
         }
     }
