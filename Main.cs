@@ -1,0 +1,43 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace AddressBook
+{
+     class AddressBookMain
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("--------Welcome to your Address Book------");
+            //Creating object person1 of program class()
+            Program person1 = new Program();
+
+            while (true)
+            {
+                Console.WriteLine("Choose one operation to perform:\n 1-Add a contact \n 2-Edit a existing contact \n 3-view Address book contacts \n 4-Exit from the Addressbook");
+                int option = Convert.ToInt32(Console.ReadLine());
+
+                switch (option)
+                {
+                    case 1:
+                        person1.AddPerson();
+                        Console.WriteLine("Enter any key to exit");
+                        break;
+                    case 2:
+                        person1.Edit();
+                        Console.WriteLine("Enter any key to exit");
+                        break;
+                    case 3:
+                        person1.Print();
+                        Console.WriteLine("Enter any key to exit");
+                        break;
+                    case 4:
+                        return;
+                    default:
+                        Console.WriteLine("Please enter a valid input");
+                        break;
+                }
+                Console.ReadLine();
+            }
+        }
+    }
+}
