@@ -6,7 +6,7 @@ namespace AddressBook
 /// </summary>
     class Program
     {
-        //UC3 to Edit contact in a address book
+        //UC4 to Delete existing contact from  address book
         public List<Contacts> personDetails = new List<Contacts>();
 
         public void AddPerson()
@@ -48,7 +48,7 @@ namespace AddressBook
                 Console.WriteLine("Email: " + person.email);
             }
         }
-
+        //method for editing contact in address book
         public void Edit()
         {
             if (personDetails.Count != 0)
@@ -121,6 +121,32 @@ namespace AddressBook
                 Console.WriteLine("Your address book is empty");
             }
         }
+        //method for deleating or removing a existing contacts
+        public void Delete()
+        {
+            Console.WriteLine("Enter the first name of the peroson you want to remove");
+            string delete = Console.ReadLine();
+            //Tolist() used to return a new list ,means input converted to list
+            foreach (var person in personDetails)
+            {
+                if (person.firstName.ToUpper() == delete.ToUpper())
+                {
+                    Console.WriteLine("Are you sure you want to delte this contact?(Y/N)");
+                    if (Console.ReadKey().Key == ConsoleKey.Y)
+                    {
+                        personDetails.Remove(person);
+                        Console.WriteLine("\nContact is deleted");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Contact is not present");
+                    }
+
+                }
+            }
+        }
+
     }
 }
+
 
