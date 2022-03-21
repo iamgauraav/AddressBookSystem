@@ -4,10 +4,10 @@ namespace AddressBook
 {/// <summary>
 /// Template for Address Book problem
 /// </summary>
-    class Program
+    class addressBook
     {
-        //UC5 ability to add multiple person to  address book
-        public List<Contacts> personDetails = new List<Contacts>();
+        //UC6 Create multiple address book
+        public LinkedList<Contacts> personDetails = new LinkedList<Contacts>();
 
         public void AddPerson()
         {
@@ -29,23 +29,32 @@ namespace AddressBook
             person.phoneNumber = Console.ReadLine();
             Console.WriteLine("Enter Email Id");
             person.email = Console.ReadLine();
-            personDetails.Add(person);
+            personDetails.AddLast(person);
         }
 
         //printing the address book details
         public void Print()
         {
-            foreach (Contacts person in personDetails)
+            if (personDetails.Count == 0)
             {
-                Console.WriteLine("-----Address book details-----");
-                Console.WriteLine("First Name: " + person.firstName);
-                Console.WriteLine("Last Name: " + person.lastName);
-                Console.WriteLine("Address: " + person.address);
-                Console.WriteLine("City: " + person.city);
-                Console.WriteLine("State: " + person.state);
-                Console.WriteLine("Zip: " + person.zip);
-                Console.WriteLine("phone Number: " + person.phoneNumber);
-                Console.WriteLine("Email: " + person.email);
+                Console.WriteLine("Your address book is empty.");
+                return;
+
+            }
+            else
+            {
+                foreach (Contacts person in personDetails)
+                {
+                    Console.WriteLine("-----Address book details-----");
+                    Console.WriteLine("First Name: " + person.firstName);
+                    Console.WriteLine("Last Name: " + person.lastName);
+                    Console.WriteLine("Address: " + person.address);
+                    Console.WriteLine("City: " + person.city);
+                    Console.WriteLine("State: " + person.state);
+                    Console.WriteLine("Zip: " + person.zip);
+                    Console.WriteLine("phone Number: " + person.phoneNumber);
+                    Console.WriteLine("Email: " + person.email);
+                }
             }
         }
         //method for editing contact in address book
@@ -58,7 +67,7 @@ namespace AddressBook
 
                 foreach (var person in personDetails)
                 {
-                    //Tolist() used to return a new list ,means input converted to list
+                    ////ToUpper used to convert to uppercase 
                     if (person.firstName.ToUpper() == edit.ToUpper())
                     {
                         while (true)
@@ -137,6 +146,7 @@ namespace AddressBook
                     {
                         personDetails.Remove(person);
                         Console.WriteLine("\nContact is deleted");
+                        break;
                     }
                     else
                     {
