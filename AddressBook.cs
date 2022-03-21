@@ -6,7 +6,7 @@ namespace AddressBook
 /// </summary>
     class Program
     {
-        //UC4 to Delete existing contact from  address book
+        //UC5 ability to add multiple person to  address book
         public List<Contacts> personDetails = new List<Contacts>();
 
         public void AddPerson()
@@ -58,6 +58,7 @@ namespace AddressBook
 
                 foreach (var person in personDetails)
                 {
+                    //Tolist() used to return a new list ,means input converted to list
                     if (person.firstName.ToUpper() == edit.ToUpper())
                     {
                         while (true)
@@ -72,7 +73,7 @@ namespace AddressBook
                             Console.WriteLine("Enter 7 to change Pincode ");
                             Console.WriteLine("Enter 8 to Exit ");
                             int Option = Convert.ToInt32(Console.ReadLine());
-
+                            
                             switch (Option)
                             {
                                 case 1:
@@ -126,7 +127,7 @@ namespace AddressBook
         {
             Console.WriteLine("Enter the first name of the peroson you want to remove");
             string delete = Console.ReadLine();
-            //Tolist() used to return a new list ,means input converted to list
+
             foreach (var person in personDetails)
             {
                 if (person.firstName.ToUpper() == delete.ToUpper())
